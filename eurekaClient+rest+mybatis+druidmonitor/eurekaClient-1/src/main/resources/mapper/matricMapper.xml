@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--注意命名空间 -->
+<mapper namespace="com.eureka.client.dao.MetricInfoDao" >
+  <resultMap id="metricRetObject" type="com.eureka.client.object.MetricRetObject" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="metricId" property="metricId" jdbcType="VARCHAR" />
+    <result column="reporterIp" property="reporterIp" jdbcType="VARCHAR" />
+    <result column="serviceName" property="serviceName" jdbcType="VARCHAR" />
+    <result column="container" property="container" jdbcType="VARCHAR" />
+    <result column="catalogLv1" property="catalogLv1" jdbcType="VARCHAR" />
+    <result column="catalogLv2" property="catalogLv2" jdbcType="VARCHAR" />
+    <result column="catalogLv3" property="catalogLv3" jdbcType="VARCHAR" />
+  </resultMap>
+    <select id="queryMetricInfoById" resultType="com.eureka.client.object.MetricRetObject" parameterType="java.lang.String">
+        SELECT * FROM t_metric_info where id=#{id} 
+    </select>
+
+    <select id="queryAllOfMetricInfo" resultMap="metricRetObject">
+        SELECT * FROM t_metric_info;
+    </select>
+</mapper>

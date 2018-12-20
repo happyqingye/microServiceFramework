@@ -1,0 +1,1 @@
+D:\tools\jdk\jdk1.8.0_181\bin\java -jar eureka-server.jar
